@@ -1,0 +1,42 @@
+html
+    head
+        link(rel ="stylesheet" href='stylesheets/style.css' type="text/css")
+        script(src="javascripts/script.js")
+    body
+        div(class ="sidebar")
+            <h1>    You can Create a post from here.
+            form(action="/new" name="Form" method="post" onsubmit="return validateForm()")
+                table
+                    tr
+                        td
+                            input( name ="Name" , placeholder="Enter your name")
+                    tr
+                        td
+                            input( name="post" , placeholder="what's on your mind")
+                    tr
+                        td
+                            button( type="submit" , name="submit") submit
+        div(class ="main")
+                each user in users.reverse()
+
+                    div(class ="main_content")
+                        form(action="/#{user.date}" onsubmit="return formvalidate()" name="postLayout" method="post")
+                            table
+                                tr
+                                    td  posted by #{user.Name}
+                                tr
+                                    td  on #{user.date}
+                                tr
+                                    td
+                                        h1  #{user.Post}
+                                tr
+                                    td
+                                        ul
+                                            each item in user.comments
+                                                li #{item.content}
+                                        a(href="/comments") view comments
+                                tr
+                                    td
+                                        input(style="width : 100%;" name ="comment" placeholder="you can give comment from here")
+                                    td
+                                        button(type ="submit") submit

@@ -1,0 +1,26 @@
+body {
+  background: lightgray;
+}
+
+.sidebar{
+    float : left;
+    background: white;
+    width:20%;
+    padding: 2%;
+    margin: 0 auto;
+    position: fixed;
+    border-radius: 20px;
+
+}
+.main_content{
+    background: white;
+    width:50%;
+    margin: 0 auto;
+    padding: 1%;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    margin-left: 350px;
+}
+.main_content a:hover{
+    text-decoration: underline;
+}
