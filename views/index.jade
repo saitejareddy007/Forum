@@ -1,7 +1,6 @@
 html
     head
         link(rel ="stylesheet" href='stylesheets/style.css' type="text/css")
-        script(src="javascripts/jquery.js")
         script(src="javascripts/script.js")
     body
         div(class ="sidebar")
@@ -10,10 +9,10 @@ html
                 table
                     tr
                         td
-                            input( name ="Name" , placeholder="Enter your name")
+                            input(style ="width:200px; border-radius:3px;" name ="Name" , placeholder="Enter your name")
                     tr
                         td
-                            input( name="post" , placeholder="what's on your mind")
+                            input(style ="width:200px; border-radius:3px;" name="post" , placeholder="what's on your mind")
                     tr
                         td
                             button( type="submit" , name="submit") submit
@@ -21,7 +20,7 @@ html
                 each user in users.reverse()
 
                     div(class ="main_content")
-                        form(action="/#{user.date}" onsubmit="return formvalidate()" name="postLayout" method="post")
+                        form(action="/#{user.date}"  name="postLayout" method="post" onsubmit ="return formvalidate()")
                             table
                                 tr
                                     td  posted by #{user.Name}
@@ -32,12 +31,11 @@ html
                                         h1  #{user.Post}
                                 tr
                                     td
-                                        div(class="comments_page")
-                                            ul
+                                        span Comments
+                                        div(class="comments_page"  )
                                                 each item in user.comments
-                                                    li  #{item.content}
+                                                     li #{item.content}
                                 tr
                                     td
-                                        input(style="width : 100%;" name ="comment" placeholder="you can give comment from here")
-                                    td
-                                        button(type ="submit") submit
+                                        input(style="width : 573px; height:20px;" name ="comment" placeholder="write comment...")
+                                        button(type ="submit"  ) submit
