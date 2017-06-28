@@ -1,7 +1,7 @@
 /**
  * Created by Sai on 6/27/17.
  */
-$(document).ready(function(){
+/*$(document).ready(function(){
     var readMoreHtml = $(".comments_page").html();
     var invisible = readMoreHtml.substr(0,0);
 
@@ -16,7 +16,7 @@ $(document).ready(function(){
         event.preventDefault();
         $(this).parent(".comments_page").html(invisible).append("<a href='' class='view' > hide comments</a>");
     });
-})
+})*/
 
 function validateForm() {
     var a=document.forms["Form"]["Name"].value;
