@@ -35,7 +35,7 @@ router.post('/new',function (req, res) {
     new user({
         Name    :   req.body.Name,
         Post    :   req.body.post,
-        date    :   date
+        date    :   date.toString().substr(0,24)
     }).save();
     res.redirect('/');
 
