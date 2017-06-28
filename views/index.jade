@@ -31,10 +31,10 @@ html
                                         h1  #{user.Post}
                                 tr
                                     td
-                                        ul
-                                            each item in user.comments
-                                                li #{item.content}
-                                        a(href="#") view comments
+                                        div(class="comments_page")
+                                            ul
+                                                each item in user.comments
+                                                    li  #{item.content}
                                 tr
                                     td
                                         input(style="width : 100%;" name ="comment" placeholder="you can give comment from here")
