@@ -6,6 +6,7 @@ var Schema = require('Schema');
 var MongoClient =require('mongodb').MongoClient;
 var objectId = require('mongodb').ObjectID;
 
+
 var dbSchema =new mongoose.Schema({
     Name    :   String,
     Post    :   String,
@@ -40,22 +41,26 @@ router.post('/new',function (req, res) {
     res.redirect('/');
 
 });
+
 router.post('/:date',function (req, res) {
     var date = req.params.date;
    // console.log(name);
     var comdate = new Date();
-    MongoClient.connect(url, function(err, db) {
-        db.collection("employees").update({date:date},
-            {
-                $push: {
-                    comments: {
-                        "content":req.body.comment ,
-                        "createdAt": comdate
+    if(!req.body.comment==""){
+        //res.send('<script>alert("Blank comment is not valid.")</script>')
+        MongoClient.connect(url, function (err, db) {
+            db.collection("employees").update({date: date},
+                {
+                    $push: {
+                        comments: {
+                            "content": req.body.comment,
+                            "createdAt": comdate
+                        }
                     }
-                }
-            });
-    });
-    res.redirect('/');
+                });
+        });
+    }
+    res.redirect("/");
 });
 
 module.exports = router;
