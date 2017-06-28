@@ -21,6 +21,9 @@ body {
     margin-bottom: 10px;
     margin-left: 350px;
 }
-.main_content a:hover{
-    text-decoration: underline;
+.comments_page{
+    margin: 0 auto;
+    width:90%;
+    background: lightblue;
+    border-radius: 5px;
 }
