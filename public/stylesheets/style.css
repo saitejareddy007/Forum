@@ -23,7 +23,9 @@ body {
 }
 .comments_page{
     margin: 0 auto;
-    width:90%;
+    width: 625px;
     background: lightblue;
     border-radius: 5px;
+    max-height: 50px;
+    overflow-y: scroll;
 }
