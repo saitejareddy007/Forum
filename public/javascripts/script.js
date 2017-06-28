@@ -33,11 +33,11 @@ function validateForm() {
     }
 }
 
-function formvalidate(){
+/*function formvalidate(){
     var a=document.forms["postLayout"]["comment"].value;
 
     if(a==null||a==""){
         alert("Blank comment is not valid")
         return false;
     }
-}
+}*/
