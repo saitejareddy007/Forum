@@ -4,14 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var fs = require('fs');
-
-var index = require('./routes/index');
-var users = require('./routes/users');
-
 var app = express();
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var index = require('./routes/index');
 
 // view engine setup
 app.use(express.static(path.join(__dirname, 'public')));
@@ -24,9 +18,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
-app.use('/', index);
-app.use('/users', users);
-
+app.use('/',index);
 
 module.exports = app;
