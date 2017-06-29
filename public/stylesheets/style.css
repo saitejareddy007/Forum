@@ -1,5 +1,6 @@
 body {
-  background: lightgray;
+    background: lightgray;
+    overflow-x: inherit;
 }
 
 .sidebar{
@@ -8,7 +9,7 @@ body {
     width:20%;
     padding: 2%;
     margin: 0 auto;
-    position: fixed;
+    position: absolute;
     border-radius: 20px;
 
 }
@@ -20,12 +21,29 @@ body {
     border-radius: 3px;
     margin-bottom: 10px;
     margin-left: 350px;
+
 }
 .comments_page{
     margin: 0 auto;
-    width: 625px;
+    width: 100%;
     background: lightblue;
     border-radius: 5px;
     max-height: 50px;
     overflow-y: scroll;
+}
+input {
+    border: 1px solid #e1e8ed;
+    border-radius: 3px;
+    padding: 4px;
+    transition: background .2s linear;
+    font-size: 13px;
+    line-height: 20px;
+    background-color: white;
+    width: 100%;
+}
+button{
+    border: 0px solid #3b88c3;
+    background-color:lightblue;
+    border-radius: 100px;
+    margin-left: 3px;
 }
