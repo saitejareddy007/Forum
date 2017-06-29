@@ -1,10 +1,9 @@
-/**
- * Created by Sai on 6/29/17.
- */
 var express = require('express');
-var router = express();
-var index = require('../lib/home');
+var router = express.Router();
+var request = require('../lib/home');
 
-router.use('/',index);
+router.get('/',request);
+router.post('/new',request);
+router.post('/:id',request);
 
 module.exports=router;
