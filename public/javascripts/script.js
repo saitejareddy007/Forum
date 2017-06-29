@@ -1,23 +1,6 @@
 /**
  * Created by Sai on 6/27/17.
  */
-/*$(document).ready(function(){
-    var readMoreHtml = $(".comments_page").html();
-    var invisible = readMoreHtml.substr(0,0);
-
-    $(".comments_page").html(invisible).append("<a href='' class='view' > view comments</a>");
-
-    $("body").on("click",".view",function (event) {
-        event.preventDefault();
-        $(this).parent(".comments_page").html(readMoreHtml).append("<a href='' class='hide_view' > hide comments</a>");
-    });
-
-    $("body").on("click",".hide_view",function (event) {
-        event.preventDefault();
-        $(this).parent(".comments_page").html(invisible).append("<a href='' class='view' > hide comments</a>");
-    });
-})*/
-
 function validateForm() {
     var a=document.forms["Form"]["Name"].value;
     var b=document.forms["Form"]["post"].value;
@@ -32,12 +15,21 @@ function validateForm() {
         return false;
     }
 }
+/*function Validate()
+{
+    var msg= "",
+        fields = document.getElementById("com").getElementsByTagName("input");
 
-/*function formvalidate(){
-    var a=document.forms["postLayout"]["comment"].value;
+    for (var i=0; i<fields.length; i++){
+        if (fields[i].value == "")
+            msg += fields[i].title + ' is required. \n';
+    }
 
-    if(a==null||a==""){
-        alert("Blank comment is not valid")
+    if(msg) {
+        alert(msg);
         return false;
     }
-}*/
+    else
+        return true;
+}
+*/
