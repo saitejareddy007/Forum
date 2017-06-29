@@ -5,37 +5,35 @@ html
     body
         div(class ="sidebar")
             <h1>    You can Create a post from here.
-            form(action="/new" name="Form" method="post" onsubmit="return validateForm()")
-                table
-                    tr
-                        td
-                            input(style ="width:200px; border-radius:3px;" name ="Name" , placeholder="Enter your name")
-                    tr
-                        td
-                            input(style ="width:200px; border-radius:3px;" name="post" , placeholder="what's on your mind")
-                    tr
-                        td
-                            button( type="submit" , name="submit") submit
+            div(class="login")
+                form(action="/new" name="Form" method="post" onsubmit="return validateForm()")
+                    table
+                        tr
+                            td
+                                input( name ="Name" , placeholder="Enter your name")
+                        tr
+                            td
+                                input( name="post" , placeholder="what's on your mind")
+                        tr
+                            td
+                                button( type="submit" , name="submit") submit
         div(class ="main")
-                each user in users.reverse()
+            each user in users.reverse()
+                div(class ="main_content")
+                    form(id="com" action="/#{user.date}"   method="post" )
+                        table
+                            tr
+                                td  posted by #{user.Name}
+                            tr
+                                td  on #{user.date}
+                            tr
+                                td
+                                    h1  #{user.Post}
 
-                    div(class ="main_content")
-                        form(action="/#{user.date}"  name="postLayout" method="post" onsubmit ="return formvalidate()")
-                            table
-                                tr
-                                    td  posted by #{user.Name}
-                                tr
-                                    td  on #{user.date}
-                                tr
-                                    td
-                                        h1  #{user.Post}
-                                tr
-                                    td
-                                        span Comments
-                                        div(class="comments_page"  )
-                                                each item in user.comments
-                                                     li #{item.content}
-                                tr
-                                    td
-                                        input(style="width : 573px; height:20px;" name ="comment" placeholder="write comment...")
-                                        button(type ="submit"  ) submit
+                        span Comments
+                        div(class="comments_page"  )
+                            each item in user.comments
+                                li #{item.content}
+
+                        input(style="width : 91.75%; margin-top:5px; height:20px;" name ="comment" placeholder="write comment...")
+                        button(type ="submit" ) submit
