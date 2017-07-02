@@ -8,7 +8,6 @@ var app = require('../app');
 var debug = require('debug')('forum:server');
 var http = require('http');
 var db =require('../repo/db');
-var router = require('../routes/index.js');
 /**
  * Get port from environment and store in Express.
  */
@@ -20,7 +19,7 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app,db,router);
+var server = http.createServer(app,db);
 
 /**
  * Listen on provided port, on all network interfaces.
