@@ -1,12 +1,58 @@
 html
     head
+        link(rel='icon' href='favicon.ico' type='image/x-icon')
         link(rel ="stylesheet" href='stylesheets/style.css' type="text/css")
         script(src="javascripts/script.js")
-    body
+        script.
+            var User =!{JSON.stringify(users)};
+            var k=User.length-6;
+            //function comments(c) {
+            //    document.getElementById("commentsa").innerHTML = c;
+            //}
+            window.onscroll=loadnew;
+            function loadnew() {
+                var content = document.getElementById("body");
+                var length =content.offsetHeight;
+                var yoffset =window.pageYOffset;
+                var y=yoffset + window.innerHeight;
+                if(y>=length){
+                    console.log("scrolled");
+                    for (var i=k;i>k-5;i--) {
+                        if (i>=0) {
+                        document.getElementById('main').innerHTML =document.getElementById('main').innerHTML+
+                            '<div id="main_contentd">' +
+                            '<form id="com" action="/'+ User[i].date+'"   method="post">' +
+                            '<table>' +
+                            '<tr>' +
+                            '<td>posted by ' + User[i].Name + ' </td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td>on '+User[i].date+'</td>' +
+                            '</tr>' +
+                            '</table>' +
+                            '<div class=class="post">' +
+                            '<h2>'+ User[i].Post +'</h2>' +
+                            '</div>' +
+                            '<span> Comments </span>' +
+                            '<div class = "comments_page" >' +
+                            '<a href="#" onclick="comments(' + i + ')" >view comments</a>' +
+                            //'<div id="commentsa"></div>' +
+                            //'<p>'+User[i].comments+ '</p>'+
+                            '</div>' +
+                            '<input style = "width : 91.75%; margin-top:5px; height:20px; "name = "comment" placeholder = "write comment...">' +
+                            '<button type ="submit" >submit </button>' +
+                            '</form>' +
+                            '</div>';
+                    }}
+                    k=k-5;
+                }
+            }
+
+    body(id="body")
         div(class ="sidebar")
             <h1>    You can Create a post from here.
             div(class="login")
-                form(action="/new" name="Form" method="post" onsubmit="return validateForm()")
+                form(action="/new" name="Form" method="post" onsubmit="return validateForm()" )
                     table
                         tr
                             td
@@ -17,23 +63,23 @@ html
                         tr
                             td
                                 button( type="submit" , name="submit") submit
-        div(class ="main")
-            each user in users.reverse()
-                div(class ="main_content")
-                    form(id="com" action="/#{user.date}"   method="post" )
+
+        div(id ="main")
+            -for(var c =users.length-1;c>=users.length-5;c--)
+                div(id ="main_content")
+                    form(id="com" action="/#{users[c].date}"   method="post" )
                         table
                             tr
-                                td  posted by #{user.Name}
+                                td  posted by #{users[c].Name}
                             tr
-                                td  on #{user.date}
+                                td  on #{users[c].date}
                             tr
                                 td
-                                    h1  #{user.Post}
-
+                        div(class="post")
+                            h2 #{users[c].Post}
                         span Comments
-                        div(class="comments_page"  )
-                            each item in user.comments
-                                li #{item.content}
-
+                            div(id="comments_page"  )
+                                each item in users[c].comments
+                                    li item
                         input(style="width : 91.75%; margin-top:5px; height:20px;" name ="comment" placeholder="write comment...")
                         button(type ="submit" ) submit
