@@ -8,8 +8,8 @@ var homeApi = require('../lib/home');
 require('es6-shim');
 
 /* GET home page. */
-router.get('/',function(req,response){
-    homeApi.getAllElements(response);
+router.get('/',function(req,res){
+    homeApi.getAllElements(res);
 });
 
 router.post('/new',function (req, res) {
@@ -17,9 +17,15 @@ router.post('/new',function (req, res) {
     res.redirect('/');
 });
 
-router.post('/:date',function (req, res) {
+router.post('/addcomment/:date',function (req, res) {
     homeApi.addComment(req.params.date,req.body.comment);
-    res.redirect("/");
+    console.log(req.params.date);
+    res.redirect("/"+req.params.date);
+});
+
+router.get('/:date',function (req, res) {
+    console.log(req.params.date);
+    homeApi.viewComments(res,req.params.date);
 });
 
 module.exports=router;
