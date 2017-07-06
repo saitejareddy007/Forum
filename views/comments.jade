@@ -1,0 +1,8 @@
+html
+    body
+        div
+            form(action="/addcomment/#{user.date}" method="post" )
+                each item in user.comments
+                    li #{item.content}
+                input(id="comment" name="comment" placeholder="write comment...")
+                button(id="btn" type="submit") submit
