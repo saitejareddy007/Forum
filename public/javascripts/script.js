@@ -10,10 +10,6 @@ function validateForm() {
         return false;
     }
 
-    if (b==null || b=="",a==null || a=="") {
-        alert("Please Fill All Required Field");
-        return false;
-    }
 }
 /*function Validate()
 {
