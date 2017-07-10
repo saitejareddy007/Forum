@@ -1,15 +1,58 @@
 /**
  * Created by Sai on 6/27/17.
  */
+//var db =require('/repo/db');
 function validateForm() {
     var a=document.forms["Form"]["Name"].value;
     var b=document.forms["Form"]["post"].value;
 
-    if (a==null || a=="",b==null || b=="") {
+    if ((a==null || a=="")||(b==null || b=="")) {
         alert("Please Fill All Required Field");
         return false;
     }
 
+}
+
+
+function loadnew() {
+    var content = document.getElementById("body");
+    //alert(content.firstElementChild);
+    var length = content.offsetHeight;
+    var yoffset = window.pageYOffset;
+    var y = yoffset + window.innerHeight;
+    if (y >= length) {
+        console.log("scrolled");
+        for (var i = k; i > k - 5; i--) {
+            if (i >= 0) {
+                document.getElementById('main').innerHTML = document.getElementById('main').innerHTML +
+                    '<div id="main_contentd">' +
+                    '<form id="com" action="/' + user[i].date + '"   method="post">' +
+                    '<table>' +
+                    '<tr>' +
+                    '<td>posted by ' + user[i].Name + ' </td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td>on ' + user[i].date + '</td>' +
+                    '</tr>' +
+                    '</table>' +
+                    '<div class=class="post">' +
+                    '<h2>' + user[i].Post + '</h2>' +
+                    '</div>' +
+                    //'<span> Comments </span>' +
+                    '<a href="/' + user[i].date + '" id="myBtn"  >comments</a>' +
+                    '<div id = "comments_page" class="modal" >' +
+
+                    '<div class="commentsa"><span class="close">&times;</span></div>' +
+                    //'<p>'+User[i].comments+ '</p>'+
+                    '</div>' +
+                    '<input style = "width : 91.75%; margin-top:5px; height:20px; "name = "comment" placeholder = "write comment...">' +
+                    '<button type ="submit" >submit </button>' +
+                    '</form>' +
+                    '</div>';
+            }
+        }
+        k = k - 5;
+    }
 }
 /*function Validate()
 {
