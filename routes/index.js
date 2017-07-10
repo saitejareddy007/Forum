@@ -4,28 +4,41 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../repo/db');
-var homeApi = require('../lib/home');
+var homeApi = require('../lib/home').getHomeAPIInstance();
 require('es6-shim');
 
 /* GET home page. */
 router.get('/',function(req,res){
-    homeApi.getAllElements(res);
+    homeApi.getAllElements(function(err, docs) {
+        res.render('index', {users: docs});
+    });
 });
 
 router.post('/new',function (req, res) {
-    homeApi.createPost(req.body.Name,req.body.post);
-    res.redirect('/');
+    // read and construct params var
+    const params = req.params || {};
+    params.postParams = req.body;
+
+    homeApi.createPost(params);
+    res.send("Your post has been created successfully.<a href='/'>home</a>");
 });
 
 router.post('/addcomment/:date',function (req, res) {
-    homeApi.addComment(req.params.date,req.body.comment);
-    console.log(req.params.date);
+    // read and construct params var
+    const params = req.params || {};
+    params.postParams = req.body;
+
+    homeApi.addComment(params);
     res.redirect("/"+req.params.date);
 });
 
 router.get('/:date',function (req, res) {
-    console.log(req.params.date);
-    homeApi.viewComments(res,req.params.date);
+    const params = req.params || {};
+//    params.postParams = req.body;
+
+    homeApi.viewComments(params,function (err, docs) {
+        res.render('comments', {user: docs});
+    });
 });
 
 module.exports=router;
