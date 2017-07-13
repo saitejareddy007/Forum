@@ -19,10 +19,10 @@ router.post('/new',function (req, res) {
     const params = req.params || {};
     params.postParams = req.body;
 
-    homeApi.createPost(params,function () {
+    homeApi.createPost(params,function (err) {
+        if (err) return err;
         res.send({msg:"Your post has been created successfully."});
     });
-
 
 });
 
@@ -31,8 +31,10 @@ router.post('/addcomment/:date',function (req, res) {
     const params = req.params || {};
     params.postParams = req.body;
 
-    homeApi.addComment(params);
-    res.redirect("/"+req.params.date);
+    homeApi.addComment(params,function (err) {
+        res.redirect("/"+req.params.date);
+    });
+
 });
 
 router.get('/:date',function (req, res) {
@@ -42,6 +44,7 @@ router.get('/:date',function (req, res) {
     homeApi.viewComments(params,function (err, docs) {
         res.render('comments', {user: docs});
     });
+
 });
 
 module.exports=router;
