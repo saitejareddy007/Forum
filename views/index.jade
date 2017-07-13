@@ -1,7 +1,7 @@
 html
     head
         link(rel='icon' href='favicon.ico' type='image/x-icon')
-        link(rel ="stylesheet" href='stylesheets/style.css' type="text/css")
+        link(rel ="stylesheet" href='stylesheets/indexStyle.css' type="text/css")
         script.
             var user = !{JSON.stringify(users)};
             var k = user.length-6;
@@ -13,7 +13,7 @@ html
                     table
                         tr
                             td
-                                input( name ="Name" , placeholder="Enter your name")
+                                input( name ="name" , placeholder="Enter your name")
                         tr
                             td
                                 input( name="post" , placeholder="what's on your mind")
