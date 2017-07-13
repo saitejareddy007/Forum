@@ -3,10 +3,10 @@
  */
 //var db =require('/repo/db');
 function validateForm() {
-    var a=document.forms["Form"]["Name"].value;
-    var b=document.forms["Form"]["post"].value;
+    var name=document.forms["Form"]["name"].value   ==   "";
+    var post=document.forms["Form"]["post"].value   ==   "";
 
-    if ((a==null || a=="")||(b==null || b=="")) {
+    if (name||post) {
         alert("Please Fill All Required Field");
         return false;
     }
