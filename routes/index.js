@@ -19,8 +19,11 @@ router.post('/new',function (req, res) {
     const params = req.params || {};
     params.postParams = req.body;
 
-    homeApi.createPost(params);
-    res.send("Your post has been created successfully.<a href='/'>home</a>");
+    homeApi.createPost(params,function () {
+        res.send({msg:"Your post has been created successfully."});
+    });
+
+
 });
 
 router.post('/addcomment/:date',function (req, res) {
