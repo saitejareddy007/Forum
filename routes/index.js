@@ -20,24 +20,24 @@ router.post('/new',function (req, res) {
     params.postParams = req.body;
 
     homeApi.createPost(params,function (err) {
-        if (err) return err;
+        if (err) throw err;
         res.send({msg:"Your post has been created successfully."});
     });
 
 });
 
-router.post('/addcomment/:date',function (req, res) {
+router.post('/addcomment/:id',function (req, res) {
     // read and construct params var
     const params = req.params || {};
     params.postParams = req.body;
 
     homeApi.addComment(params,function (err) {
-        res.redirect("/"+req.params.date);
+        res.redirect("/"+req.params.id);
     });
 
 });
 
-router.get('/:date',function (req, res) {
+router.get('/:id',function (req, res) {
     const params = req.params || {};
 //    params.postParams = req.body;
 
