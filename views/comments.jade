@@ -1,11 +1,12 @@
 html
     head
+        script(src="/javascripts/comment.js")
         link(rel ="stylesheet" href='stylesheets/commentsStyle.css' type="text/css")
     body
         div(id="comments_page")
-            form(action="/addcomment/#{user.date}" method="post" )
-                div(id="upper_part")
-                    each item in user.comments
+            form(action="/addcomment/#{posts._id}" method="post" )
+                div(id="upper_part" onload="window.scrollTo(10,document.this.scrollHeight);")
+                    each item in posts.comments
                         p #{item.content}
                 div(id="lower_part")
                     input(id="comment" name="comment" placeholder="write comment...")
