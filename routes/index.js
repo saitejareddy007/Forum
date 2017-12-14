@@ -1,50 +1,80 @@
-/**
- * Created by Sai on 6/29/17.
- */
-var express = require('express');
-var router = express.Router();
 var db = require('../repo/db');
-var homeApi = require('../lib/home').getHomeAPIInstance();
-require('es6-shim');
 
-/* GET home page. */
-router.get('/',function(req,res){
-    homeApi.getAllElements(function(err, docs) {
-        res.render('index', {users: docs});
-    });
-});
+class Home {
+    getAllElements(params,cb1,cb2) {
+        const postParams = params.postParams;
+        const email = postParams.loginId;
+        const password = postParams.password;
+        db.dbOfAccounts.findOne({Email:email.toString()},function (err,result) {
+            if(!result)
+                cb2();
 
-router.post('/new',function (req, res) {
-    // read and construct params var
-    const params = req.params || {};
-    params.postParams = req.body;
+            else if(password == result.Password){
+                db.dbOfPosts.find({}, cb1)
+            }
 
-    homeApi.createPost(params,function (err) {
-        if (err) throw err;
-        res.send({msg:"Your post has been created successfully."});
-    });
+            else
+                cb2();
+        });
+    }
+    createForumAccount(params,cb){
+        const postParams = params.postParams;
+        const name = postParams.name;
+        const email = postParams.username;
+        const password = postParams.newPassword;
+        new db.dbOfAccounts({
+            Name:name,
+            Email:email,
+            Password:password
+        }).save(cb);
+    }
 
-});
+    createPost(params,cb) {
+        const postParams = params.postParams;
+        const name = params.Name;
+        const id=   params._id;
+        console.log(id);
+        const post = postParams.post;
+        var date = new Date().toString().substr(0,24);
+        new db.dbOfPosts(
+            {
+                idOfPost:id,
+                Name:name,
+                Post:post,
+                date:date
+            }
+        ).save(cb);
+    }
 
-router.post('/addcomment/:id',function (req, res) {
-    // read and construct params var
-    const params = req.params || {};
-    params.postParams = req.body;
+    addComment(params,cb) {
+        const id = params.id;
+        const comment = params.postParams && params.postParams.comment || "";
+        var comdate =   new Date().toString().substr(0,24);
+        var query   =   {_id: id};
+        if(!comment==""){
+            db.dbOfPosts.update(query,
+                {
+                    $push: {
+                        comments: {
+                            "content": comment ,
+                            "createdAt": comdate
+                        }
+                    }
+                },cb
+            );
+        }
+    }
 
-    homeApi.addComment(params,function (err) {
-        res.redirect("/"+req.params.id);
-    });
+    viewComments(params, cb) {
+        var id =params.id;
+        db.dbOfPosts.findById(id, cb);
+    }
+}
 
-});
+// returns an application wide static instance of homeAPI
+function getHomeAPIInstance() {
+    const home = new Home();
+    return home;
+}
 
-router.get('/:id',function (req, res) {
-    const params = req.params || {};
-//    params.postParams = req.body;
-
-    homeApi.viewComments(params,function (err, docs) {
-        res.render('comments', {user: docs});
-    });
-
-});
-
-module.exports=router;
+exports.getHomeAPIInstance = getHomeAPIInstance;
