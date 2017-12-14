@@ -1,0 +1,44 @@
+//Created by Sai on 7/15/17.
+html
+    head
+        link( rel="stylesheet" type="text/css" href="stylesheets/loginStyle.css")
+        script(src="javascripts/login.js")
+    body
+        div( id="loginForm" )
+            div( class="loginFormUpperPart" )
+                form( method="post" )
+                    ul
+                        li
+                            h1 Log in to Forum
+
+                        li
+                            input( type="name" name="loginId" placeholder="Email or Username")
+
+                        li
+                            input( type="password" name="password" placeholder="Password")
+
+                        li
+                            button( type="submit" ) Log in
+
+            div( class="loginFormLowerPart" method="post")
+                span New to Forum?
+                span
+                    button( onclick="fun()") Sign up now
+
+        div( id="createAccountForm" style="visibility:hidden")
+            form(action="/newAccount" method="post")
+                ul
+                    li
+                        h1  Join in Forum today
+
+                    li
+                        input( type="text" name="name" placeholder="Full name")
+
+                    li
+                        input( type="text" name="username" placeholder="Phone or Email")
+
+                    li
+                        input( type="password" name="newPassword" placeholder="Password")
+
+                    li
+                        button( type="submit" ) Submit
