@@ -3,40 +3,31 @@ html
         link(rel='icon' href='favicon.ico' type='image/x-icon')
         link(rel ="stylesheet" href='stylesheets/indexStyle.css' type="text/css")
         script.
-            var user = !{JSON.stringify(users)};
-            var k = user.length-6;
-    body(id="body" onscroll="loadnew(user);")
+            var post = !{JSON.stringify(posts)};
+            var k = post.length-6;
+    body(id="body" onscroll="loadnew(post);")
+        div(class="top")
+            form(action="/logout" method="post")
+                button(type="submit")  logout
         div(class ="sidebar")
-            <h1>    You can Create a post from here.
+            <h1>    You can create a post from here.
             div(class="login")
-                form(action="/new" name="Form" method="post" onsubmit="return validateForm()" )
+                form(action="/new" name="Form" method="post" onsubmit="return validateForm()" enctype="multipart/form-data")
                     table
                         tr
                             td
-                                input( name ="name" , placeholder="Enter your name")
-                        tr
+                                input( name="post"  placeholder="what's on your mind")
+                        //tr
                             td
-                                input( name="post" , placeholder="what's on your mind")
+                                input(name="file" type="file")
                         tr
                             td
                                 button( type="submit" , name="submit") submit
-
         div(id ="main")
-            -for(var c =users.length-1;c>=users.length-5;c--)
+            -for(var c =posts.length-1;c>=posts.length-5;c--)
                 div(id ="main_content")
-                    form(id="com" action="/addComment/#{users[c].date}"   method="post" )
-                        table
-                            tr
-                                td  posted by #{users[c].Name}
-                            tr
-                                td  on #{users[c].date}
-                            tr
-                                td
-                        div(class="post")
-                            h2 #{users[c].Post}
-                        a(href="/#{users[c].date}" ) Comments
-                            div(id="comments_page"  )
-
-                        input(style="width : 91.75%; margin-top:5px; height:20px;" name ="comment" placeholder="write comment...")
-                        button(type ="submit" ) submit
-    script(src="javascripts/script.js")
+                    p posted by #{posts[c].Name}
+                    p Posted on #{posts[c].date}
+                    h1 #{posts[c].Post}
+                    a(href="/#{posts[c]._id}") comments
+        script(src="javascripts/script.js")
