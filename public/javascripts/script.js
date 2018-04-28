@@ -27,7 +27,7 @@ function loadnew() {
                 document.getElementById('main').innerHTML = document.getElementById('main').innerHTML +
                     '<div id="main_contentd">' +
                     '<form id="com" action="/' + user[i].date + '"   method="post">' +
-                    '<table>' +
+                    '<table style="table-layout: fixed; width: 100%;">' +
                     '<tr>' +
                     '<td>posted by ' + user[i].Name + ' </td>' +
                     '</tr>' +
@@ -36,7 +36,7 @@ function loadnew() {
                     '</tr>' +
                     '</table>' +
                     '<div class=class="post">' +
-                    '<h2>' + user[i].Post + '</h2>' +
+                    '<h2 style="overflow-wrap: break-word;">' + user[i].Post + '</h2>' +
                     '</div>' +
                     //'<span> Comments </span>' +
                     '<a href="/' + user[i].date + '" id="myBtn"  >comments</a>' +
