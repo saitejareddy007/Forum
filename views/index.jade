@@ -25,7 +25,7 @@ html
             -for(var c =users.length-1;c>=users.length-5;c--)
                 div(id ="main_content")
                     form(id="com" action="/addComment/#{users[c].date}"   method="post" )
-                        table
+                        table(style="table-layout: fixed; width: 100%;")
                             tr
                                 td  posted by #{users[c].Name}
                             tr
@@ -33,7 +33,7 @@ html
                             tr
                                 td
                         div(class="post")
-                            h2 #{users[c].Post}
+                            h2(style="overflow-wrap: break-word;") #{users[c].Post}
                         a(href="/#{users[c].date}" ) Comments
                             div(id="comments_page"  )
 
