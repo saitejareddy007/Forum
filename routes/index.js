@@ -5,7 +5,7 @@ var express = require('express');
 var router = express.Router();
 var db = require('../repo/db');
 var homeApi = require('../lib/home').getHomeAPIInstance();
-require('es6-shim');
+//require('es6-shim');
 
 /* GET home page. */
 router.get('/',function(req,res){
