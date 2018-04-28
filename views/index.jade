@@ -21,7 +21,7 @@ html
             each user in users.reverse()
                 div(class ="main_content")
                     form(id="com" action="/#{user.date}"   method="post" )
-                        table( width=100% style = "table-layout:fixed;")
+                        table(style = "table-layout:fixed;width:100%;")
                             tr
                                 td  posted by #{user.Name}
                             tr
