@@ -21,14 +21,14 @@ html
             each user in users.reverse()
                 div(class ="main_content")
                     form(id="com" action="/#{user.date}"   method="post" )
-                        table
+                        table( width=100% style = "table-layout:fixed;")
                             tr
                                 td  posted by #{user.Name}
                             tr
                                 td  on #{user.date}
                             tr
                                 td
-                                    h1(class="textOfPost")  #{user.Post}
+                                    h1  #{user.Post}
 
                         span Comments
                         div(class="comments_page"  )
