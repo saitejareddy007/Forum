@@ -26,8 +26,28 @@ html
         div(id ="main")
             -for(var c =posts.length-1;c>=posts.length-5;c--)
                 div(id ="main_content")
+<<<<<<< HEAD
                     p posted by #{posts[c].Name}
                     p Posted on #{posts[c].date}
                     h1 #{posts[c].Post}
                     a(href="/#{posts[c]._id}") comments
         script(src="javascripts/script.js")
+=======
+                    form(id="com" action="/addComment/#{users[c].date}"   method="post" )
+                        table(style="table-layout: fixed; width: 100%;")
+                            tr
+                                td  posted by #{users[c].Name}
+                            tr
+                                td  on #{users[c].date}
+                            tr
+                                td
+                        div(class="post")
+                            h2(style="overflow-wrap: break-word;") 
+                                pre #{users[c].Post}
+                        a(href="/#{users[c].date}" ) Comments
+                            div(id="comments_page"  )
+
+                        input(style="width : 91.75%; margin-top:5px; height:20px;" name ="comment" placeholder="write comment...")
+                        button(type ="submit" ) submit
+    script(src="javascripts/script.js")
+>>>>>>> Update index.jade
