@@ -25,7 +25,7 @@ function loadnew() {
         for (var i = k; i > k - 5; i--) {
             if (i >= 0) {
                 document.getElementById('main').innerHTML = document.getElementById('main').innerHTML +
-                    '<div id="main_contentd">' +
+                    '<div id="main_content">' +
                     '<form id="com" action="/' + user[i].date + '"   method="post">' +
                     '<table style="table-layout: fixed; width: 100%;">' +
                     '<tr>' +
