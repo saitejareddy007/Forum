@@ -21,7 +21,7 @@ html
                             td
                                 button( type="submit" , name="submit") submit
 
-        div(id ="main")
+        div(id ="main" style="position:relative;")
             -for(var c =users.length-1;c>=users.length-5;c--)
                 div(id ="main_content")
                     form(id="com" action="/addComment/#{users[c].date}"   method="post" )
