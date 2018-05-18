@@ -9,11 +9,11 @@ html
         div(class ="sidebar")
             <h1>    You can Create a post from here.
             div(class="login")
-                form(action="/new" name="Form" method="post" onsubmit="return validateForm()" )
-                    table
+                form(action="/new" style="width=100%" name="Form" method="post" onsubmit="return validateForm()" )
+                    table(width="100%" style="table-layout: fixed; width=100%;")
                         tr
                             td
-                                input( name ="name" , placeholder="Enter your name")
+                                input(  name ="name" , placeholder="Enter your name")
                         tr
                             td
                                 input( name="post" , placeholder="what's on your mind")
