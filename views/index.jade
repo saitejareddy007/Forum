@@ -12,12 +12,21 @@ html
         div(class ="sidebar")
             <h1>    You can create a post from here.
             div(class="login")
+<<<<<<< HEAD
                 form(action="/new" name="Form" method="post" onsubmit="return validateForm()" enctype="multipart/form-data")
                     table
                         tr
                             td
                                 input( name="post"  placeholder="what's on your mind")
                         //tr
+=======
+                form(action="/new" style="width=100%" name="Form" method="post" onsubmit="return validateForm()" )
+                    table(width="100%" style="table-layout: fixed; width=100%;")
+                        tr
+                            td
+                                input(  name ="name" , placeholder="Enter your name")
+                        tr
+>>>>>>> updated
                             td
                                 input(name="file" type="file")
                         tr
