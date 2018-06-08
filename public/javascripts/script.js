@@ -2,6 +2,20 @@
  * Created by Sai on 6/27/17.
  */
 //var db =require('/repo/db');
+
+document.getElementById('createPostForm').style.maxHeight = screen.height/100*79+'px';
+$(document).ready(function() {
+    $('.postText').each(function () {
+        // Get the content
+        var str = $(this).html();
+        // Set the regex string
+        var regex = /(https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/ig
+        // Replace plain text links by hyperlinks
+        var replaced_text = str.replace(regex, "<a href='$1' target='_blank'>$1</a>");
+        // Echo link
+        $(this).html(replaced_text);
+    });
+});
 function validateForm() {
     var name=document.forms["Form"]["name"].value   ==   "";
     var post=document.forms["Form"]["post"].value   ==   "";
