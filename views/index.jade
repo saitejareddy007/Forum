@@ -19,14 +19,14 @@ html
                                 input(  name ="name" , placeholder="Enter your name")
                         tr
                             td
-                                textarea(style="min-width:100%;max-width:100%;min-height:100px;max-height:500px;" name="post" , placeholder="what's on your mind")
+                                textarea(style="min-width:100%;max-width:100%;max-height:100px;" name="post" , placeholder="what's on your mind")
                         tr
                             td
                                 button( type="submit" , name="submit") submit
 
         div(id ="main" style="margin-left:2%; position:relative;")
             -for(var c =users.length-1;c>=users.length-5;c--)
-                div(id ="main_content")
+                div(class ="main_content")
                     form(id="com" action="/addComment/#{users[c].date}"   method="post" )
                         table(style="table-layout: fixed; width: 100%;")
                             tr
