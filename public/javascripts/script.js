@@ -4,7 +4,7 @@
 
 document.getElementById('createPostForm').style.maxHeight = screen.height/100*79+'px';
 $(function(){
-    $('.postText').linkify();
+    $('html').linkify();
 });
 
 function validateForm() {
@@ -41,7 +41,7 @@ function loadnew() {
                     '</tr>' +
                     '</table>' +
                     '<div class=class="post">' +
-                    '<h2 style="overflow-wrap: break-word;">' + user[i].Post + '</h2>' +
+                    '<h2 style="overflow-wrap: break-word;"><pre class="postText">' + user[i].Post + '</pre></h2>' +
                     '</div>' +
                     //'<span> Comments </span>' +
                     '<a href="/' + user[i].date + '" id="myBtn"  >comments</a>' +
@@ -58,6 +58,7 @@ function loadnew() {
         }
         k = k - 5;
     }
+    $('html').linkify();
 }
 /*function Validate()
 {
