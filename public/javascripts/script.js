@@ -5,8 +5,15 @@
 document.getElementById('createPostForm').style.maxHeight = screen.height/100*79+'px';
 $(function(){
     $('html').linkify();
+    $(".main_content").animate({'margin-top': '0px','opacity':'1'},'slow');
 });
+window.onresize = function() {
+    //alert(document.getElementById('createPostForm').offsetWidth);
+    if (document.getElementById('createPostForm').offsetWidth == 150) {
+        document.getElementById('main').offsetWidth = window.innerWidth-166;
+    }
 
+}
 function validateForm() {
     var name=document.forms["Form"]["name"].value   ==   "";
     var post=document.forms["Form"]["post"].value   ==   "";
@@ -18,9 +25,12 @@ function validateForm() {
 
 }
 
+function postAnimation() {
+    $(".main_content").animate({'margin-top': '0px','opacity':'1'},'slow');
+}
 
 function loadnew() {
-    var content = document.getElementById("body");
+    var content = document.getElementById("main");
     //alert(content.firstElementChild);
     var length = content.offsetHeight;
     var yoffset = window.pageYOffset;
@@ -30,7 +40,11 @@ function loadnew() {
         for (var i = k; i > k - 5; i--) {
             if (i >= 0) {
                 document.getElementById('main').innerHTML = document.getElementById('main').innerHTML +
+<<<<<<< HEAD
                     '<div id="main_contentd">' +
+=======
+                    '<div class="main_content">' +
+>>>>>>> updated
                     '<form id="com" action="/' + user[i].date + '"   method="post">' +
                     '<table style="table-layout: fixed; width: 100%;">' +
                     '<tr>' +
@@ -57,6 +71,7 @@ function loadnew() {
             }
         }
         k = k - 5;
+        postAnimation();
     }
     $('html').linkify();
 }

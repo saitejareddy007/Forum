@@ -1,29 +1,44 @@
 body {
-    background: lightgray;
+    background: #98FB98;
+    padding: 1%;
     overflow-x: inherit;
     max-width: 100%;
+
 }
 .sidebar{
     float : left;
-    background: white;
-    width:20%;
-    padding: 2%;
-    margin: 0 auto;
     position: fixed;
+    background: white;
+    width:24%;
+    padding: 2%;
     border-radius: 20px;
-
+    box-shadow: 1px 1px 10px 2px #777;
+    min-width: 150px;
 }
+<<<<<<< HEAD
 #main_content{
     background:white;
     width:50%;
     margin: 0 auto;
+=======
+#main{
+    float: right;
+    width:69%;
+
+}
+.main_content{
+    background:white;
+    opacity: 0;
+    width:98%;
+>>>>>>> updated
     padding: 1%;
     border-radius: 3px;
     margin-bottom: 10px;
     margin-left: 350px;
     max-width: 100%;
     word-wrap: break-word;
-
+    box-shadow: 1px 1px 10px 2px #777;
+    margin-top: 50px;
 }
 #main_contentd{
     background:white;
@@ -54,6 +69,30 @@ input {
     line-height: 20px;
     background-color: white;
     width: 100%;
+    outline:none;
+}
+input:hover{
+    border: 1px solid  #3b88c3;
+}
+input:focus{
+    border: 1px solid  #3b88c3;
+}
+textarea{
+    border: 1px solid #e1e8ed;
+    border-radius: 3px;
+    padding: 4px;
+    transition: background .2s linear;
+    font-size: 13px;
+    line-height: 20px;
+    background-color: white;
+    width: 100%;
+    outline: none;
+}
+textarea:hover{
+    border: 1px solid  #3b88c3;
+}
+textarea:focus{
+    border: 1px solid  #3b88c3;
 }
 button{
     border: 0px solid #3b88c3;
