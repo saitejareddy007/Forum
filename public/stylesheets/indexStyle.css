@@ -33,12 +33,15 @@ body {
 >>>>>>> updated
     padding: 1%;
     border-radius: 3px;
+<<<<<<< HEAD
     margin-bottom: 10px;
     margin-left: 350px;
+=======
+>>>>>>> updated
     max-width: 100%;
     word-wrap: break-word;
     box-shadow: 1px 1px 10px 2px #777;
-    margin-top: 50px;
+    margin: 100px auto 10px;
 }
 #main_contentd{
     background:white;
