@@ -8,7 +8,7 @@ html
         script.
             var user = !{JSON.stringify(users)};
             var k = user.length-6;
-    body(id="body" onscroll="loadnew(user);")
+    body(id="body" )
         div(class ="sidebar" id="createPostForm")
             <h1>    You can Create a post from here.
             div(class="login")
@@ -24,7 +24,7 @@ html
                             td
                                 button( type="submit" , name="submit") submit
 
-        div(id ="main" style="margin-left:2%; position:relative;")
+        div(id ="main" onscroll="loadnew(user);" style="margin-left:2%; position:relative;")
             -for(var c =users.length-1;c>=users.length-5;c--)
                 div(class ="main_content")
                     form(id="com" action="/addComment/#{users[c].date}"   method="post" )
