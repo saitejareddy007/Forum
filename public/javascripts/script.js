@@ -1,21 +1,12 @@
 /**
  * Created by Sai on 6/27/17.
  */
-//var db =require('/repo/db');
 
 document.getElementById('createPostForm').style.maxHeight = screen.height/100*79+'px';
-$(document).ready(function() {
-    $('.postText').each(function () {
-        // Get the content
-        var str = $(this).html();
-        // Set the regex string
-        var regex = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
-        // Replace plain text links by hyperlinks
-        var replaced_text = str.replace(regex, "<a href='$1' target='_blank'>$1</a>");
-        // Echo link
-        $(this).html(replaced_text);
-    });
+$(function(){
+    $('.postText').linkify();
 });
+
 function validateForm() {
     var name=document.forms["Form"]["name"].value   ==   "";
     var post=document.forms["Form"]["post"].value   ==   "";
