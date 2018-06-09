@@ -36,10 +36,8 @@ html
                             tr
                                 td
                         div(class="post")
-                            -var str = users[c].Post;
-                             -str = str.toString();
                             h2
-                                pre( class="postText" style="overflow-wrap: break-word;")  #{str}
+                                pre( class="postText" style="overflow-wrap: break-word;") #{users[c].Post}
 
                         a(href="/#{users[c].date}" ) Comments
                             div(id="comments_page"  )
