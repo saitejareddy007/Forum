@@ -15,13 +15,23 @@
     "express-session": "^1.15.6",
     "gridfs-stream": "^1.1.1",
     "html": "^1.0.0",
+<<<<<<< HEAD
     "isset": "^1.0.4",
+=======
+    "jQuery": "^1.7.4",
+>>>>>>> updated
     "jade": "~1.11.0",
+    "jquery": "^3.3.1",
+    "linkifyjs": "^2.1.6",
     "mongodb": "^2.2.29",
     "mongoose": "^4.10.8",
     "morgan": "~1.8.1",
     "multer": "^1.3.0",
+<<<<<<< HEAD
     "npm": "^6.0.1",
+=======
+    "npm": "^6.1.0",
+>>>>>>> updated
     "serve-favicon": "~2.4.2"
   }
 }
