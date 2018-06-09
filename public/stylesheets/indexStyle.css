@@ -1,7 +1,6 @@
 body {
     background-image:url("../images/wbg.png");
-    padding: 1%;
-    overflow-x: inherit;
+    padding: 1% 0 1% 1%;
     max-width: 100%;
 
 }
@@ -24,7 +23,11 @@ body {
 #main{
     float: right;
     width:69%;
-
+    position: fixed;
+    height: 100%;
+    padding-right: 1%;
+    padding-left: 1%;
+    overflow-y: scroll;
 }
 .main_content{
     background:white;

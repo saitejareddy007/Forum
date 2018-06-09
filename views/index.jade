@@ -18,7 +18,7 @@ html
 =======
             var user = !{JSON.stringify(users)};
             var k = user.length-6;
-    body(id="body" onscroll="loadnew(user);")
+    body(id="body" )
         div(class ="sidebar" id="createPostForm")
             <h1>    You can Create a post from here.
 >>>>>>> updated
@@ -56,7 +56,7 @@ html
             -for(var c =posts.length-1;c>=posts.length-5;c--)
 =======
 
-        div(id ="main" style="margin-left:2%; position:relative;")
+        div(id ="main" onscroll="loadnew(user);" style="margin-left:2%; position:relative;")
             -for(var c =users.length-1;c>=users.length-5;c--)
 <<<<<<< HEAD
 >>>>>>> Update index.jade

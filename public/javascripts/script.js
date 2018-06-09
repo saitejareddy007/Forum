@@ -33,9 +33,11 @@ function loadnew() {
     var content = document.getElementById("main");
     //alert(content.firstElementChild);
     var length = content.offsetHeight;
-    var yoffset = window.pageYOffset;
-    var y = yoffset + window.innerHeight;
-    if (y >= length) {
+    var scrolledHeight = content.scrollTop;
+    var total = content.scrollHeight;
+    var currentHeight = scrolledHeight + length;
+    //var y = yoffset + window.innerHeight;
+    if (total <= currentHeight) {
         console.log("scrolled");
         for (var i = k; i > k - 5; i--) {
             if (i >= 0) {
