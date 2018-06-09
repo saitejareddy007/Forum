@@ -26,7 +26,7 @@ function validateForm() {
 }
 
 function postAnimation() {
-    $(".main_content").animate({'margin-top': '0px','opacity':'1'},'slow');
+    $(".main_content").animate({'margin-top': '0px','opacity':'1'},900);
 }
 
 function loadnew() {
