@@ -10,13 +10,13 @@ html
             var k = user.length-6;
     body(id="body" )
         div(class ="sidebar" id="createPostForm")
-            <h1>    You can Create a post from here.
+            h1  You can create a post from here.
             div(class="login")
                 form(action="/new" style="width=100%" name="Form" method="post" onsubmit="return validateForm()" )
                     table(width="100%" style="table-layout: fixed; width=100%;")
                         tr
                             td
-                                input(  name ="name" , placeholder="Enter your name")
+                                input(name ="name" , placeholder="Enter your name")
                         tr
                             td
                                 textarea(style="min-width:100%;max-width:100%;max-height:100px;" name="post" , placeholder="what's on your mind")
@@ -24,7 +24,7 @@ html
                             td
                                 button( type="submit" , name="submit") submit
 
-        div(id ="main" onscroll="loadnew(user);" style="margin-left:2%; position:relative;")
+        div(id ="main" onscroll="loadnew(user);")
             -for(var c =users.length-1;c>=users.length-5;c--)
                 div(class ="main_content")
                     form(id="com" action="/addComment/#{users[c].date}"   method="post" )

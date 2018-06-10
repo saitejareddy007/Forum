@@ -2,22 +2,21 @@ body {
     background-image:url("../images/wbg.png");
     padding: 1% 0 1% 1%;
     max-width: 100%;
-
 }
 .sidebar{
     float : left;
-    position: fixed;
+    position: relative;
     background: white;
     width:24%;
     padding: 2%;
     border-radius: 20px;
     box-shadow: 1px 1px 10px 2px #777;
-    min-width: 150px;
+    min-width: 140px;
 }
 #main{
     float: right;
     width:69%;
-    position: fixed;
+    position: relative;
     height: 100%;
     padding-right: 1%;
     padding-left: 1%;
@@ -28,11 +27,13 @@ body {
     opacity: 0;
     width:98%;
     padding: 1%;
+    position: relative;
     border-radius: 3px;
     max-width: 100%;
     word-wrap: break-word;
     box-shadow: 1px 1px 10px 2px #777;
     margin: 100px auto 10px;
+
 }
 #main_contentd{
     background:white;
@@ -150,4 +151,23 @@ pre {
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+@media only screen and (max-width: 600px) {
+    body{
+        margin: 0 auto;
+        padding: 0;
+        margin: 2%;
+    }
+   .sidebar {
+       float: none;
+       width: 94%;
+       margin: 1%;
+    }
+    #main{
+        float: none;
+        width: 100%;
+        margin: 1% auto;
+        padding: 0;
+    }
 }
