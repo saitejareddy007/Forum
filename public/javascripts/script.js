@@ -27,9 +27,6 @@ function validateForm() {
 
 function postAnimation() {
     $(".main_content").animate({'margin-top': '0px','opacity':'1'},900);
-    $("h1").click(function () {
-        alert(window.outerWidth);
-    });
 }
 
 function loadnew() {
