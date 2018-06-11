@@ -2,6 +2,10 @@ html
     head
         link(rel='icon' href='favicon.ico' type='image/x-icon')
         link(rel ="stylesheet" href='stylesheets/indexStyle.css' type="text/css")
+        meta( name="viewport" content="width=device-width, initial-scale=1")
+        link( rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+        script( src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+        script( src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
         script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js" type="text/javascript")
         script(src="javascripts/linkifyjs/linkify.js")
         script(src="javascripts/linkifyjs/linkify-jquery.js")
@@ -9,41 +13,46 @@ html
             var user = !{JSON.stringify(users)};
             var k = user.length-6;
     body(id="body" )
-        div(class ="sidebar" id="createPostForm")
-            h1  You can create a post from here.
-            div(class="login")
-                form(action="/new" style="width=100%" name="Form" method="post" onsubmit="return validateForm()" )
-                    table(width="100%" style="table-layout: fixed; width=100%;")
-                        tr
-                            td
-                                input(name ="name" , placeholder="Enter your name")
-                        tr
-                            td
-                                textarea(style="min-width:100%;max-width:100%;max-height:100px;" name="post" , placeholder="what's on your mind")
-                        tr
-                            td
-                                button( type="submit" , name="submit") submit
+        div(class="container-fluid")
+            div(class="row")
+                div(class ="sidebar col-sm-3" id="createPostForm")
+                    h1  You can create a post from here.
+                    div(class="login")
+                        form(action="/new" style="width=100%" name="Form" method="post" onsubmit="return validateForm()" )
+                            table(width="100%" style="table-layout: fixed; width=100%;")
+                                tr
+                                    td
+                                        input(name ="name" , placeholder="Enter your name")
+                                tr
+                                    td
+                                        textarea(style="min-width:100%;max-width:100%;max-height:100px;" name="post" , placeholder="what's on your mind")
+                                tr
+                                    td
+                                        button( type="submit" , name="submit") submit
 
-        div(id ="main" onscroll="loadnew(user);")
-            -for(var c =users.length-1;c>=users.length-5;c--)
-                div(class ="main_content")
-                    form(id="com" action="/addComment/#{users[c].date}"   method="post" )
-                        table(style="table-layout: fixed; width: 100%;")
-                            tr
-                                td  posted by #{users[c].Name}
-                            tr
-                                td  on #{users[c].date}
-                            tr
-                                td
-                        div(class="post")
-                            h2
-                                pre( class="postText" style="overflow-wrap: break-word;") #{users[c].Post}
+                div(id ="main" class="col-sm-9" onscroll="loadnew(user);")
+                    -for(var c =users.length-1;c>=users.length-5;c--)
+                        div(class ="main_content")
+                            form(id="com" action="/addComment/#{users[c].date}"   method="post" )
+                                table(style="table-layout: fixed; width: 100%;")
+                                    tr
+                                        td  posted by #{users[c].Name}
+                                        td
+                                            div(style="float:right")
+                                                span(class="glyphicon glyphicon-trash trashIcon" id="#{users[c].date}" )
+                                    tr
+                                        td  on #{users[c].date}
+                                    tr
+                                        td
+                                div(class="post")
+                                    h2
+                                        pre( class="postText" style="overflow-wrap: break-word;") #{users[c].Post}
 
-                        a(href="/#{users[c].date}" ) Comments
-                            //div(id="comments_page"  )
+                                a(href="/#{users[c].date}" ) Comments
+                                    //div(id="comments_page"  )
 
-                        input(style="width : 91%; margin-top:5px; height:20px;" name ="comment" placeholder="write comment...")
-                        button( type ="submit" ) submit
+                                input(style="width : 91%; margin-top:5px; height:20px;" name ="comment" placeholder="write comment...")
+                                button( type ="submit" ) submit
     script(src="javascripts/script.js")
 
 

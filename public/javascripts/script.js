@@ -6,6 +6,16 @@ document.getElementById('createPostForm').style.maxHeight = screen.height/100*79
 $(function(){
     $('html').linkify();
     $(".main_content").animate({'margin-top': '0px','opacity':'1'},'slow');
+    $(".trashIcon").on("click",function () {
+        var post = $(this).closest("table").closest('div');
+        post.animate({'width': '0px','height':'0px','opacity':'0'},'slow',function () {
+            post.hide();
+            post.removeClass('main_content');
+            if($(".main_content").length==0){
+                loadnew();
+            }
+        });
+    });
 });
 window.onresize = function() {
     //alert(document.getElementById('createPostForm').offsetWidth);
@@ -27,6 +37,16 @@ function validateForm() {
 
 function postAnimation() {
     $(".main_content").animate({'margin-top': '0px','opacity':'1'},900);
+    $(".trashIcon").on("click",function () {
+        var post = $(this).closest("table").closest('div');
+        post.animate({'width': '0px','height':'0px','opacity':'0'},'slow',function () {
+            post.hide();
+            post.removeClass('main_content');
+            if($(".main_content").length==0){
+                loadnew();
+            }
+        });
+    });
 }
 
 function loadnew() {
@@ -47,6 +67,7 @@ function loadnew() {
                     '<table style="table-layout: fixed; width: 100%;">' +
                     '<tr>' +
                     '<td>posted by ' + user[i].Name + ' </td>' +
+                    '<td><div style="float:right" ><span class="glyphicon glyphicon-trash trashIcon" id="'+user[i].date+'"></span></div></td>'+
                     '</tr>' +
                     '<tr>' +
                     '<td>on ' + user[i].date + '</td>' +
