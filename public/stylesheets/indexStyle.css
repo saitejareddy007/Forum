@@ -1,26 +1,20 @@
 body {
     background-image:url("../images/wbg.png");
-    padding: 1% 0 1% 1%;
     max-width: 100%;
+    padding-left: 1%;
+    padding-top: 1%;
 }
 .sidebar{
-    float : left;
-    position: relative;
     background: white;
-    width:24%;
     padding: 2%;
     border-radius: 20px;
     box-shadow: 1px 1px 10px 2px #777;
-    min-width: 140px;
+    margin-bottom: 20px;
 }
 #main{
-    float: right;
-    width:69%;
-    position: relative;
     height: 100%;
-    padding-right: 1%;
-    padding-left: 1%;
     overflow-y: scroll;
+    margin: 0;
 }
 .main_content{
     background:white;

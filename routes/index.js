@@ -37,7 +37,13 @@ router.post('/addcomment/:id',function (req, res) {
     });
 
 });
-
+router.post('/deletePost/:id',function (req, res) {
+    const params = req.params || {};
+    homeApi.deletePost(params,function (err, result) {
+        if(err) throw err;
+        res.end("The post is deleted successfully");
+    });
+})
 router.get('/:id',function (req, res) {
     const params = req.params || {};
 //    params.postParams = req.body;
