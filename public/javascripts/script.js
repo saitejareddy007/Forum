@@ -35,17 +35,20 @@ function postAnimation() {
             post.removeClass('main_content');
             if(prompt("Enter the admin password to delete the post permanently",'')=="sai007")
                 deletePostFromDb(btn.attr('id'));
-            else
+            else{
                 if($(".main_content").length==0){
                     loadnew();
                 }
+            }
         });
     });
 }
 
 function deletePostFromDb(id) {
     $.post('/deletePost/'+id,function (data) {
-        alert(data);
+        alert(data,function () {
+
+        });
         if($(".main_content").length==0){
             loadnew();
         }
