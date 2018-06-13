@@ -33,11 +33,13 @@ function postAnimation() {
         post.animate({'width': '0px','height':'0px','opacity':'0'},'slow',function () {
             post.hide();
             post.removeClass('main_content');
-            if(prompt("Enter the admin password to delete the post permanently",'')=="sai007")
+            var password = prompt("Enter the admin password to delete the post permanently",'');
+            if(password=="sai007")
                 deletePostFromDb(btn.attr('id'));
             else{
                 if($(".main_content").length==0){
-                    loadnew();
+                    setTimeout(loadnew(),'slow');
+                    //loadnew();
                 }
             }
         });
@@ -46,9 +48,7 @@ function postAnimation() {
 
 function deletePostFromDb(id) {
     $.post('/deletePost/'+id,function (data) {
-        alert(data,function () {
-
-        });
+        alert(data);
         if($(".main_content").length==0){
             loadnew();
         }
@@ -86,7 +86,7 @@ function loadnew() {
                     '<h2 style="overflow-wrap: break-word;"><pre class="postText">' + user[i].Post + '</pre></h2>' +
                     '</div>' +
                     //'<span> Comments </span>' +
-                    '<a href="/' + user[i].date + '" id="myBtn"  >comments</a>' +
+                    '<a href="/comments/' + user[i].date + '" id="myBtn"  >comments</a>' +
                     '<div id = "comments_page" class="modal" >' +
 
                     '<div class="commentsa"><span class="close">&times;</span></div>' +
