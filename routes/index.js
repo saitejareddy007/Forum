@@ -112,7 +112,7 @@ router.post('/deletePost/:id',function (req, res) {
         res.end("The post is deleted successfully");
     });
 })
-router.get('/comments/:id',function (req, res) {
+router.get('/:id',function (req, res) {
     const params = req.params || {};
 //    params.postParams = req.body;
 
