@@ -1,7 +1,6 @@
 /**
  * Created by Sai on 6/29/17.
  */
-var express = require('express');
 var url = "mongodb://localhost:27017/MongoDatabase";
 var mongoose = require('mongoose');
 var dbSchema =new mongoose.Schema({
