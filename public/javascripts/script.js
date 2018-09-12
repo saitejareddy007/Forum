@@ -86,7 +86,7 @@ function loadnew() {
                     '<h2 style="overflow-wrap: break-word;"><pre class="postText">' + user[i].Post + '</pre></h2>' +
                     '</div>' +
                     //'<span> Comments </span>' +
-                    '<a href="/' + user[i].date + '" id="myBtn"  >comments</a>' +
+                    '<a href="./' + user[i].date + '" id="myBtn"  >comments</a>' +
                     '<div id = "comments_page" class="modal" >' +
 
                     '<div class="commentsa"><span class="close">&times;</span></div>' +
