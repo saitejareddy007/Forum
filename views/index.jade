@@ -33,22 +33,22 @@ html
                 div(id ="main" class="col-sm-9" onscroll="loadnew(user);")
                     -for(var c =users.length-1;c>=users.length-5;c--)
                         div(class ="main_content")
-                            form(id="com" action="/addComment/#{users[c].date}"   method="post" )
+                            form(id="com" action="/addComment/!{users[c].date}"   method="post" )
                                 table(style="table-layout: fixed; width: 100%;")
                                     tr
-                                        td  posted by #{users[c].Name}
+                                        td  posted by !{users[c].Name}
                                         td
                                             div(style="float:right")
-                                                span(class="glyphicon glyphicon-trash trashIcon" id="#{users[c].date}" )
+                                                span(class="glyphicon glyphicon-trash trashIcon" id="!{users[c].date}" )
                                     tr
-                                        td  on #{users[c].date}
+                                        td  on !{users[c].date}
                                     tr
                                         td
                                 div(class="post")
                                     h2
-                                        pre( class="postText" style="overflow-wrap: break-word;") #{users[c].Post}
+                                        pre( class="postText" style="overflow-wrap: break-word;") !{users[c].Post}
 
-                                a(href="./#{users[c].date}" ) Comments
+                                a(href="./!{users[c].date}" ) Comments
                                     //div(id="comments_page"  )
 
                                 input(style="width : 91%; margin-top:5px; height:20px; margin-right:10px;" name ="comment" placeholder="write comment...")
