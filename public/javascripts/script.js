@@ -67,20 +67,10 @@ function loadnew() {
         for (var i = k; i > k - 5; i--) {
             if (i >= 0) {
                 document.getElementById('main').innerHTML = document.getElementById('main').innerHTML +
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 0e0f805d412953876086576c3e03b25fdd8a1c93
+
                     '<div id="main_contentd">' +
                     '<div class="main_content">' +
-<<<<<<< HEAD
-=======
->>>>>>> updated
-=======
                     '<div class="main_content">' +
->>>>>>> 5ec137135399641820aac55d2aef582736476e24
->>>>>>> 0e0f805d412953876086576c3e03b25fdd8a1c93
                     '<form id="com" action="/' + user[i].date + '"   method="post">' +
                     '<table style="table-layout: fixed; width: 100%;">' +
                     '<tr>' +

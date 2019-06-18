@@ -21,11 +21,6 @@ html
             var user = !{JSON.stringify(users)};
             var k = user.length-6;
     body(id="body" )
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 0e0f805d412953876086576c3e03b25fdd8a1c93
         div(class ="sidebar" id="createPostForm")
             <h1>    You can Create a post from here.
             h1  You can create a post from here.
@@ -72,12 +67,6 @@ html
                         div(class="post")
                             h2
                                 pre( class="postText" style="overflow-wrap: break-word;") #{users[c].Post}
-<<<<<<< HEAD
-=======
-=======
-=======
->>>>>>> 5ec137135399641820aac55d2aef582736476e24
->>>>>>> 0e0f805d412953876086576c3e03b25fdd8a1c93
         div(class="container-fluid")
             div(class="row")
                 div(class ="sidebar col-sm-3" id="createPostForm")
@@ -96,11 +85,7 @@ html
                                         button( type="submit" , name="submit") submit
 
                 div(id ="main" class="col-sm-9" onscroll="loadnew(user);")
-<<<<<<< HEAD
-                    -for(var c =users.length-1;c>=users.length-5;c--)
-=======
                     -for(var c =users.length-1;c>=users.length-5 && c>0;c--)
->>>>>>> 5ec137135399641820aac55d2aef582736476e24
                         div(class ="main_content")
                             form(id="com" action="/addComment/#{users[c].date}"   method="post" )
                                 table(style="table-layout: fixed; width: 100%;")
@@ -115,11 +100,6 @@ html
                                         td
                                 div(class="post")
                                     h2
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 0e0f805d412953876086576c3e03b25fdd8a1c93
                                         pre( class="postText" style="overflow-wrap: break-word;") #{users[c].Post}
                                         pre( class="postText" style="overflow-wrap: break-word;") !{users[c].Post}
 
@@ -129,12 +109,6 @@ html
                                 input(style="width : 91%; margin-top:5px; height:20px; margin-right:10px;" name ="comment" placeholder="write comment...")
                                 button( type ="submit" ) submit
     script(src="javascripts/script.js")
-
-
-<<<<<<< HEAD
-=======
->>>>>>> updated
-=======
                                         pre( class="postText" style="overflow-wrap: break-word;") !{users[c].Post}
 
                                 a(href="./#{users[c].date}" ) Comments
@@ -144,6 +118,3 @@ html
                                 button( type ="submit" ) submit
     script(src="javascripts/script.js")
 
-
->>>>>>> 5ec137135399641820aac55d2aef582736476e24
->>>>>>> 0e0f805d412953876086576c3e03b25fdd8a1c93
