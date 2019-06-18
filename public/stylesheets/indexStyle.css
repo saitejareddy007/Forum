@@ -10,6 +10,7 @@ body {
     border-radius: 20px;
     box-shadow: 1px 1px 10px 2px #777;
     margin-bottom: 20px;
+<<<<<<< HEAD
 }
 
 #main{
@@ -26,6 +27,26 @@ body {
     border-radius: 3px;
     margin-bottom: 10px;
     margin-left: 350px;
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> updated
+=======
+}
+#main{
+    height: 100%;
+    overflow-y: scroll;
+    margin: 0;
+}
+.main_content{
+    background:white;
+    opacity: 0;
+    width:98%;
+    padding: 1%;
+    position: relative;
+    border-radius: 3px;
+>>>>>>> 5ec137135399641820aac55d2aef582736476e24
+>>>>>>> 0e0f805d412953876086576c3e03b25fdd8a1c93
     max-width: 100%;
     word-wrap: break-word;
     box-shadow: 1px 1px 10px 2px #777;
