@@ -24,6 +24,7 @@ html
             var k = user.length-6;
     body(id="body" )
 <<<<<<< HEAD
+<<<<<<< HEAD
         div(class ="sidebar" id="createPostForm")
 <<<<<<< HEAD
             <h1>    You can Create a post from here.
@@ -92,6 +93,8 @@ html
                             h2
                                 pre( class="postText" style="overflow-wrap: break-word;") #{users[c].Post}
 =======
+=======
+>>>>>>> 5ec137135399641820aac55d2aef582736476e24
         div(class="container-fluid")
             div(class="row")
                 div(class ="sidebar col-sm-3" id="createPostForm")
@@ -110,7 +113,11 @@ html
                                         button( type="submit" , name="submit") submit
 
                 div(id ="main" class="col-sm-9" onscroll="loadnew(user);")
+<<<<<<< HEAD
                     -for(var c =users.length-1;c>=users.length-5;c--)
+=======
+                    -for(var c =users.length-1;c>=users.length-5 && c>0;c--)
+>>>>>>> 5ec137135399641820aac55d2aef582736476e24
                         div(class ="main_content")
                             form(id="com" action="/addComment/#{users[c].date}"   method="post" )
                                 table(style="table-layout: fixed; width: 100%;")
@@ -125,6 +132,7 @@ html
                                         td
                                 div(class="post")
                                     h2
+<<<<<<< HEAD
 <<<<<<< HEAD
                                         pre( class="postText" style="overflow-wrap: break-word;") #{users[c].Post}
 >>>>>>> updated
@@ -144,3 +152,15 @@ html
 
 
 >>>>>>> updated
+=======
+                                        pre( class="postText" style="overflow-wrap: break-word;") !{users[c].Post}
+
+                                a(href="./#{users[c].date}" ) Comments
+                                    //div(id="comments_page"  )
+
+                                input(style="width : 91%; margin-top:5px; height:20px; margin-right:10px;" name ="comment" placeholder="write comment...")
+                                button( type ="submit" ) submit
+    script(src="javascripts/script.js")
+
+
+>>>>>>> 5ec137135399641820aac55d2aef582736476e24

@@ -1,6 +1,7 @@
 /**
  * Created by Sai on 6/29/17.
  */
+<<<<<<< HEAD
 
 var express = require('express');
 var session = require('express-session');
@@ -92,20 +93,48 @@ router.post('/new',function (req, res) {
         if (err) throw err;
         res.send({msg:'Your post has been created successfully.'});
     });
+=======
+let express = require('express');
+let router = express.Router();
+let db = require('../repo/db');
+let homeApi = require('../lib/homeAPI').getInstance();
+let {callAPI} = require('../lib/common-utils/router_functions');
+let fn = require('../lib/common-utils/functions');
+let {renderViewFromAPI} = require('../lib/common-utils/router_functions');
 
+// require('es6-shim');
+
+/* GET home page. */
+router.get('/', (req, res) => {
+    renderViewFromAPI(req, res, fn.bind(homeApi,"getAllElements"), 'index');
 });
 
-router.post('/addcomment/:id',function (req, res) {
+router.post("/getPosts/", (req, res) => {
+    callAPI(req, res, fn.bind(homeApi,"getAllElements"));
+});
+>>>>>>> 5ec137135399641820aac55d2aef582736476e24
+
+router.post('/new',function (req, res) {
+    callAPI(req, res, fn.bind(homeApi,"createPost"));
+});
+
+router.post('/add-comment/:id',function (req, res) {
     // read and construct params var
     const params = req.params || {};
     params.postParams = req.body;
 
+<<<<<<< HEAD
     homeApi.addComment(params,function (err) {
         res.redirect('/'+params.id)
+=======
+    Home.addComment(params,function (err) {
+        res.redirect("/"+req.params.id);
+>>>>>>> 5ec137135399641820aac55d2aef582736476e24
     });
 
 });
 router.post('/deletePost/:id',function (req, res) {
+<<<<<<< HEAD
     const params = req.params || {};
     homeApi.deletePost(params,function (err, result) {
         if(err) throw err;
@@ -120,6 +149,13 @@ router.get('/:id',function (req, res) {
         res.render('comments', {posts: docs});
     });
 
+=======
+    callAPI(req, res, fn.bind(homeApi,"deletePost"));
+});
+
+router.get('/view-comments/:id',function (req, res) {
+    renderViewFromAPI(req, res, fn.bind(homeApi,"viewComments"),"comments");
+>>>>>>> 5ec137135399641820aac55d2aef582736476e24
 });
 
 module.exports=router;

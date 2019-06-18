@@ -68,10 +68,14 @@ function loadnew() {
             if (i >= 0) {
                 document.getElementById('main').innerHTML = document.getElementById('main').innerHTML +
 <<<<<<< HEAD
+<<<<<<< HEAD
                     '<div id="main_contentd">' +
 =======
                     '<div class="main_content">' +
 >>>>>>> updated
+=======
+                    '<div class="main_content">' +
+>>>>>>> 5ec137135399641820aac55d2aef582736476e24
                     '<form id="com" action="/' + user[i].date + '"   method="post">' +
                     '<table style="table-layout: fixed; width: 100%;">' +
                     '<tr>' +

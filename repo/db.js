@@ -2,6 +2,7 @@
  * Created by Sai on 6/29/17.
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> updated
@@ -38,7 +39,23 @@ var dbOfPosts       =   mongoose.model("Posts",postSchema);
 var dbOfAccounts    =   mongoose.model("Users",accountSchema);
 
 var db={dbOfPosts,dbOfAccounts,item};
+=======
+const url = "mongodb://localhost:27017/MongoDatabase";
+let mongoose = require('mongoose');
+let dbSchema = new mongoose.Schema({
+    Name: String,
+    Post: String,
+    date: String,
+    comments: [
+        {
+            content: String,
+            createdAt: String
+        }
+    ]
+});
+>>>>>>> 5ec137135399641820aac55d2aef582736476e24
 
-mongoose.connect(url);
+let db = mongoose.model("employees", dbSchema);
+const connection = mongoose.connect(url,{ useNewUrlParser: true });
 
 module.exports = db;
