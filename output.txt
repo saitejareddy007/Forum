@@ -1,8 +1,0 @@
-(node:62654) DeprecationWarning: `open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/4.x/docs/connections.html#use-mongo-client
-[0mGET / [32m200 [0m403.243 ms - 23826[0m
-[0mGET /javascripts/linkifyjs/linkify.js [32m200 [0m6.223 ms - 48861[0m
-[0mGET /stylesheets/indexStyle.css [32m200 [0m11.905 ms - 3314[0m
-[0mGET /javascripts/linkifyjs/linkify-jquery.js [32m200 [0m7.943 ms - 7704[0m
-[0mGET /javascripts/script.js [32m200 [0m8.489 ms - 4124[0m
-[0mGET /images/wbg.png [32m200 [0m1.463 ms - 698653[0m
-[0mGET /favicon.ico [32m200 [0m3.452 ms - 1[0m
