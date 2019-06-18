@@ -1,10 +1,7 @@
 /**
  * Created by Sai on 6/29/17.
  */
-<<<<<<< HEAD
 
-=======
->>>>>>> updated
 var url = "mongodb://localhost:27017/MongoDatabase";
 var mongoose = require('mongoose');
 

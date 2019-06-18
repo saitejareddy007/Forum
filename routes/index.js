@@ -9,16 +9,8 @@ var fs =require('fs');
 var path= require('path');
 var router = express.Router();
 var homeApi = require('../lib/home').getHomeAPIInstance();
-<<<<<<< HEAD
-<<<<<<< HEAD
 var isset = require('isset');
 var sess;
-=======
-=======
-
->>>>>>> updated
-//require('es6-shim');
->>>>>>> Update index.js
 
 /* GET home page. */
 router.get('/',function (req, res, next) {

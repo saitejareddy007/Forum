@@ -10,7 +10,6 @@ html
         script(src="javascripts/linkifyjs/linkify.js")
         script(src="javascripts/linkifyjs/linkify-jquery.js")
         script.
-<<<<<<< HEAD
             var post = !{JSON.stringify(posts)};
             var k = post.length-6;
     body(id="body" onscroll="loadnew(post);")
@@ -19,67 +18,44 @@ html
                 button(type="submit")  logout
         div(class ="sidebar")
             <h1>    You can create a post from here.
-=======
             var user = !{JSON.stringify(users)};
             var k = user.length-6;
     body(id="body" )
-<<<<<<< HEAD
         div(class ="sidebar" id="createPostForm")
-<<<<<<< HEAD
             <h1>    You can Create a post from here.
->>>>>>> updated
-=======
             h1  You can create a post from here.
->>>>>>> updated
             div(class="login")
-<<<<<<< HEAD
                 form(action="/new" name="Form" method="post" onsubmit="return validateForm()" enctype="multipart/form-data")
                     table
                         tr
                             td
                                 input( name="post"  placeholder="what's on your mind")
                         //tr
-=======
                 form(action="/new" style="width=100%" name="Form" method="post" onsubmit="return validateForm()" )
                     table(width="100%" style="table-layout: fixed; width=100%;")
                         tr
                             td
                                 input(name ="name" , placeholder="Enter your name")
                         tr
->>>>>>> updated
                             td
-<<<<<<< HEAD
-<<<<<<< HEAD
                                 input(name="file" type="file")
-=======
                                 textarea(style="min-width:100%;max-width:100%;min-height:100px;max-height:500px;" name="post" , placeholder="what's on your mind")
->>>>>>> updated
-=======
                                 textarea(style="min-width:100%;max-width:100%;max-height:100px;" name="post" , placeholder="what's on your mind")
->>>>>>> updated
                         tr
                             td
                                 button( type="submit" , name="submit") submit
-<<<<<<< HEAD
         div(id ="main")
             -for(var c =posts.length-1;c>=posts.length-5;c--)
-=======
 
         div(id ="main" onscroll="loadnew(user);")
             -for(var c =users.length-1;c>=users.length-5;c--)
-<<<<<<< HEAD
->>>>>>> Update index.jade
                 div(id ="main_content")
-<<<<<<< HEAD
                     p posted by #{posts[c].Name}
                     p Posted on #{posts[c].date}
                     h1 #{posts[c].Post}
                     a(href="/#{posts[c]._id}") comments
         script(src="javascripts/script.js")
-=======
-=======
                 div(class ="main_content")
->>>>>>> updated
                     form(id="com" action="/addComment/#{users[c].date}"   method="post" )
                         table(style="table-layout: fixed; width: 100%;")
                             tr
@@ -91,7 +67,6 @@ html
                         div(class="post")
                             h2
                                 pre( class="postText" style="overflow-wrap: break-word;") #{users[c].Post}
-=======
         div(class="container-fluid")
             div(class="row")
                 div(class ="sidebar col-sm-3" id="createPostForm")
@@ -125,12 +100,8 @@ html
                                         td
                                 div(class="post")
                                     h2
-<<<<<<< HEAD
                                         pre( class="postText" style="overflow-wrap: break-word;") #{users[c].Post}
->>>>>>> updated
-=======
                                         pre( class="postText" style="overflow-wrap: break-word;") !{users[c].Post}
->>>>>>> jade html escape added
 
                                 a(href="./#{users[c].date}" ) Comments
                                     //div(id="comments_page"  )
@@ -138,9 +109,5 @@ html
                                 input(style="width : 91%; margin-top:5px; height:20px; margin-right:10px;" name ="comment" placeholder="write comment...")
                                 button( type ="submit" ) submit
     script(src="javascripts/script.js")
-<<<<<<< HEAD
->>>>>>> Update index.jade
-=======
 
 
->>>>>>> updated

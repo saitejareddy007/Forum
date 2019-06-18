@@ -67,11 +67,8 @@ function loadnew() {
         for (var i = k; i > k - 5; i--) {
             if (i >= 0) {
                 document.getElementById('main').innerHTML = document.getElementById('main').innerHTML +
-<<<<<<< HEAD
                     '<div id="main_contentd">' +
-=======
                     '<div class="main_content">' +
->>>>>>> updated
                     '<form id="com" action="/' + user[i].date + '"   method="post">' +
                     '<table style="table-layout: fixed; width: 100%;">' +
                     '<tr>' +
